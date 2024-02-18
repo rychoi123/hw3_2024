@@ -109,22 +109,50 @@ footer{
 links in the navigation are in the hover or focus state.*/
 
 
+nav li:hover, nav li:active {
+  text-decoration: underline;
+}
+
 
 /* Step 2a: Write selector/rule property to position the default position for the skip class element*/
 
-
+.skip {
+  position: absolute;
+  top: -40px;
+  overflow: hidden;
+}
 /* Step 2b: Write selector/rule property to position the skip class element when it is in focus*/
 
-
+a.skip:focus {
+  top: 20px;
+}
 /* Step 3: Write selector/rule property to style all elements when in focus*/
 
-
+*:focus{
+  border: 2px;
+}
 
 /* Step 4: Write selector/rule property to style the container */
 
-
+.container{
+  display:grid;
+  grid-template-columns: 1fr 5fr 1fr;
+  grid-row-gap: 15px;
+}
 /* Step 5: Write selector/rule property to add the background image to the 
 first div in the grid  and place it in the grid. */
+.container div:first-child{
+  grid-column:1/ span 3;
+  background-image: url("../images/header.jpg");
+  min-height: 500px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 
 
 
@@ -133,13 +161,114 @@ first div in the grid  and place it in the grid. */
 
       /*This will be a lot of rules.... but be strategic and combine seletors*/
 
+.about{
+  grid-column: 2/span 1;
+  grid-row: 2;
+}
 
+.method{
+  grid-column: 2/span 1;
+  grid-row: 3;
+}
+
+.clients{
+  grid-column: 2/span 1;
+  grid-row: 4;
+}
+
+.contact{
+  grid-column: 2/span 1;
+  grid-row: 5;
+}
+
+.about-image{
+  grid-column: 1/span 3;
+  grid-row: 2;
+  max-height: 600px;
+  overflow:hidden;
+}
+
+.method-image{
+  grid-column: 1/span 3;
+  grid-row: 3;
+  max-height: 600px;
+  overflow:hidden;
+}
+
+.clients-image{
+  grid-column: 1/span 3;
+  grid-row: 4;
+  max-height: 600px;
+  overflow:hidden;
+}
+
+.contact-image{
+  grid-column: 1/span 3;
+  grid-row: 5;
+  overflow:hidden;
+}
+
+.text-block{
+  margin:auto;
+  text-align: center;
+  align-content: center;
+}
  /* Step 8: Write the selector/rule property to style the .text-block class. */
 
 
 /* Add your media query here */
+[class*="col-"] {
+  width: 100%;
+}
 
+@media screen and (min-width: 800px){
+nav{
+  text-align: end;
+  padding: 30px 0 30px 0;
+}
+.container{
+  display:grid;
+  grid-template-columns: 50px auto 500px auto 50px;
+}
 
+.about{
+  grid-column: 3/span 2;
+}
+
+.clients{
+  grid-column: 3/span 2;
+}
+
+.method-image{
+  grid-column: 3/span 2;
+}
+
+.contact-image{
+  grid-column: 3/span 2;
+}
+
+.contact{
+  grid-column: 2/span 2;
+}
+
+.method{
+  grid-column: 2/span 2;
+}
+
+.about-image{
+  grid-column: 2/span 2;
+}
+
+.clients-image{
+  grid-column: 2/span 2;
+}
+
+.text-block{
+  max-height: 250px;
+  overflow:clip;
+}
+	
+}
   /* Step 9: Write the selector/rule property to style the nav element */
 
  
